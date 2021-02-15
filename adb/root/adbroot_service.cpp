@@ -52,11 +52,12 @@ ADBRootService::ADBRootService() : enabled_(false) {
 
 void ADBRootService::Register() {
     auto service = ndk::SharedRefBase::make<ADBRootService>();
-    binder_status_t status = AServiceManager_addService(
-            service->asBinder().get(), getServiceName());
-
-    if (status != STATUS_OK) {
-        LOG(FATAL) << "Could not register adbroot service: " << status;
+    if (service) {
+        binder_status_t status = AServiceManager_addService(
+                service->asBinder().get(), getServiceName());
+        if (status != STATUS_OK) {
+            LOG(FATAL) << "Could not register adbroot service: " << status;
+        }
     }
 }
 
