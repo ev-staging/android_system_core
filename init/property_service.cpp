@@ -1260,6 +1260,7 @@ static void ProcessSafetyNetProps() {
     InitPropertySet("ro.boot.veritymode", "enforcing");
     InitPropertySet("ro.boot.vbmeta.device_state", "locked");
     InitPropertySet("ro.boot.warranty_bit", "0");
+    InitPropertySet("ro.build.tags", "release-keys");
     InitPropertySet("ro.warranty_bit", "0");
 }
 }
